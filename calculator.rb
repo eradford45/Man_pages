@@ -3,4 +3,4 @@ require 'pry'
 
 p 'welcome to the ruby calculator'
 
-# todo make a calculator
+# todo make a calculator!
