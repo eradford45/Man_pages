@@ -1,0 +1,9 @@
+ # Mac
+ .DS_Store
+
+ #VSCode
+ inputoutput.rb
+ shoppinglist.rb
+ contactlist.rb
+ stupid.rb
+ ruby_lecture.rb
