@@ -2,18 +2,47 @@
 require 'pry'
 
 def menu
-    p 'welcome to the ruby calculator'
-    p 'please enter the first number'
-    first_num = gets.strip.to_i
-    p 'please enter the second number'
-    second_num = gets.strip.to_i
-    p 'please enter + - / *'
-    operator = gets.strip
-    calculations(first_num, second_num, operator)
+    p "welcome to calculations"
+    p "enter your equation"
+    p "put spaces inbetween everything"
+    equation = gets.strip.split(" ")
+    first_num = equation[0].to_i
+    second_num = equation[2].to_i
+    operator = equation[1]
+
+    if first_num =~ /([0-9]+)\.([0-9]+)/
+      puts "its works"
+      else
+      puts "it doesnt work"
+      end
+
+
+    
+    
+      # if /(d+)|/(\d+).(\d+)/.match(first_num)
+      #   calculations(first_num, second_num, operator)
+      # else 
+      #   p 'first number was invalid'
+      #   menu
+      # end
+      # if /(d+)|/(\d+).(\d+)/.match(second_num)
+      #   calculations(first_num, second_num, operator)
+      # else
+      #   p 'second number was invalid'
+      #   menu(first_num)
+      # end
+      calculations(first_num, second_num, operator)
+    
+       
+
+    
 end 
 
 def calculations(first_num, second_num, operator)
-    case operator
+    first_num = first_num.to_i
+    second_num = second_num.to_i
+  
+  case operator
         when operator = "+"
             first_num = (first_num + second_num)
             puts "the anwser is #{first_num}"
@@ -33,7 +62,9 @@ def calculations(first_num, second_num, operator)
         else
             p "#{operator} is not supported please enter +, -, /, *"
             operator = gets.strip
+            calculations(first_num, second_num, operator)
     end
+
 end
 
 def menu2(first_num)
@@ -55,13 +86,27 @@ def menu2(first_num)
 end   
 
 def menu3(first_num)
-    p 'enter second number'
-    second_num = gets.strip.to_i
     p 'enter operator +, -, /, *'
     operator = gets.strip
-    calculations(first_num, second_num, operator)
+    p 'enter second number'
+    second_num = gets.strip.to_i
+    p 'Is this correct?'
+    p "#{first_num} #{operator} #{second_num}"
+    p 'y/n?'
+    yn = gets.strip
+    if yn == "y"
+      calculations(first_num, second_num, operator)
+    else
+      menu2(first_num)
+    end
 end
 
 
-menu
+
+
+
+
+
+  menu
+
 
