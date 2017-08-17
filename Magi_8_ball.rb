@@ -109,15 +109,19 @@ end
 
 
 def bossmode(anwser, default_anwsers, cheat_codes)    
-	first = cheat_codes.shift
-	first.strip
-	p "#{first}"
+	if cheat_codes.empty? == false
+		first = cheat_codes.shift
+		first.strip
+		p "#{first}"
+	else
+		menu(anwser, default_anwsers)
+	end
 	if first == 'boss_mode'
-		p 'here'
+	
 		bossmode_menu(anwser, default_anwsers)
 	else
 		menu(anwser, default_anwsers)
-		p 'here 2'
+	
 	end
 end
 
