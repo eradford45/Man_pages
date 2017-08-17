@@ -2,23 +2,29 @@
 require 'pry'
 
 def menu
+  begin
     p "welcome to calculations"
     p "enter your equation"
     p "put spaces inbetween everything"
     equation = gets.strip.split(" ")
-    first_num = equation[0].to_i
-    second_num = equation[2].to_i
+    first_num = equation[0]
+    second_num = equation[2]
     operator = equation[1]
 
-    if first_num =~ /([0-9]+)\.([0-9]+)/
-      puts "its works"
-      else
-      puts "it doesnt work"
-      end
-
+    first_num = Float(first_num) 
+    rescue
+    p 'first number Invalid'
+    menu
+    second_num = Float(second_num)
+    rescue 
+    p 'second number invalid'
+    menu
+    end
 
     
     
+    # This was a Check to make sure first_num and second_ num
+    # were actually numbers... didnt work.. 
       # if /(d+)|/(\d+).(\d+)/.match(first_num)
       #   calculations(first_num, second_num, operator)
       # else 
